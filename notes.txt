@@ -1,0 +1,163 @@
+hello program.
+
+Build it with debugging info and no optimisation
+then run readelf on it to get entry point.
+$ readelf -h ./hello | grep Entry
+  Entry point address:               0x4004b0
+
+Run with gdb
+gdb -tui ./hello
+
+Set breakpoint on main.
+break main
+
+Run it up to that point.
+run
+
+Notice down in lower right corner, it has the IPC shown as 0x40 05af.
+This is because the libc startup code starts first and then it is what
+calls main.  However, the thing to note is that soon after, main is hit.
+
+gdb in this mode can show multiple layouts. You can specify particular
+layouts using:
+layout src - shows src and command window 
+layout asm - shows assembly and command window
+layout reg - shows reg window which ever is present already, asm or src
+layout split - shows source, assembly and command window
+You can also do layout prev, or layout next.
+
+With multiple windows, your arrow keys only move the window in focus.
+You need to set focus to scroll.  Use 
+focus src - to scroll the source window.
+
+Adjust the assembly and source window so you can see what's going on.
+
+Notice that the last thing before the call to puts is it moves the 
+address 0x0400644 to the edi register.  This is the string for the printf.
+
+The examine memory commad is:
+x/format address
+
+Address can be either a hardcoded address or a c-source level symbol. In
+this case, we don't have a symbol since its literal string. So:
+x/s 0x400644
+The s format will show it as a string.
+
+x/20c 0x400644
+This adds a count specifier in this case, 20. It also says to dump the values
+as characters.  So, in this case it dumps 20 characters.  We can do this 
+to verify a string has a trailing null terminator , 0x0.
+
+We can also dump the values in hex.
+x/20x 0x400644
+
+Notice, we don't see the \n character.
+This is because, its not using printf, it is using puts, which puts a newline
+after printing the string.  The compiler has optimized out the string. This
+seems odd to me considering we built the code using -O0.
+
+Regarding the stack frame ABI.  I'm building and running this code on an x64
+machine.  With x86 paramters to a function are put on the stack right to left.
+In x64 the parameters are placed by a rule,
+if memory, it goes left to right on the stack. If integer based its
+left to right in registers, rdi, rsi, rdx, rcx, r8 and r9.  Its odd to me
+that the parameter is memory but its put in edi. If more parms than registers
+the values are placed on the stack.
+
+See http://stackoverflow.com/questions/2535989/what-are-the-calling-conventions-for-unix-linux-system-calls-on-x86-64
+
+Use stepi and nexti instead of step and next to step assembly code.
+
+display/i $pc
+
+Now, change makefile to build the same code without symbols.  Build code
+and then readelf again.  The entry point is now 0x4004b0.
+
+You can also use objdump -x ./hello to see all the symbols and then look 
+for _start or main. _start corresponds to 0x4004b0 per above and main
+is 0x4005a0 shortly afterwards.
+
+To differenate between a function name and an address, use * symbol
+break *0x4004b0
+break *0x4005a0
+
+This sets breakpoints on the libc startup code and the main routine.
+Type run as before. It will pause at _start.  You can look around at the 
+startup code and then enter cont to hit the next breakpoint.
+
+You can issue 
+frame
+and 
+info frame
+
+to get info about the current frame.
+
+you can verify this with backtrace command.
+bt
+
+
+Looking at the code, in main. the first two lines are saving the frame pointer
+on the stack.
+
+http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
+
+The code in assembly for linux using gdb uses a notation which is
+differnt from windows assembly.  You can recognize gas quickly since
+it uses % to refer to a register.  It also uses the paramters differently
+given a command foo the parms are: foo src,dest
+
+Regarding registers
+rip is ipc
+rbp is ebp
+
+pushl   %ebp
+        movl    %esp, %ebp
+        subl    $8, %esp
+
+This saves the base pointer on the stack.  Then it adjusts the
+stack to make room for local variables.  We don't have any though.
+
+Stack grows towards smaller values.
+
+with rip=0x4005a0
+Address				Value		Comment
+0x7ffff7750bc5					saved rip
+0x7fffffffe9a0					locals
+0x7fffffffe9a0					arglist
+0x7fffffffe9b0					stack level 0 | previous sp
+
+
+
+eventually it gets to puts code, 
+0x7fff f779 a690 <puts>   push %r12 <r12=0x4004b0> <rsp= 0x7fffffffe988>
+0x7fff f779 a692 <puts+2> mov    %rdi,%r12 <rdi=0x400644>
+0x7ffff779a695 <puts+5>   push   %rbp <0x7fffffffe9a0>
+before this code
+gdb) info f
+Stack level 0, frame at 0x7fffffffe990:
+ rip = 0x7ffff779a695 in puts; saved rip 0x4005b9
+ called by frame at 0x7fffffffe9b0
+ Arglist at 0x7fffffffe978, args: 
+ Locals at 0x7fffffffe978, Previous frame's sp is 0x7fffffffe990
+ Saved registers:
+  r12 at 0x7fffffffe980, rip at 0x7fffffffe988
+(gdb) 
+
+0x7ffff779a696 <puts+6>   push   %rbx <rbx=0>
+0x7ffff779a697 <puts+7>   callq  0x7ffff77b0a50 <strlen>
+afterwards, rax=0x11 or 17 which corresponds to length of our string.
+
+
+
+Set breakpoints
+Set layouts to src and regs
+display/i $pc
+
+x/format address
+
+
+Thievery Corporation - Lebanese Blonde
+The Heavy - Short Change Hero
+Lucho Bermudez - Fiesta de Negritos
+
+
