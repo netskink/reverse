@@ -11,11 +11,13 @@ CC = gcc
 # Non-Debug No-optimization Flags
 #CFLAGS = -Wall -O0
 # Debug No-Optimization Flags
-CFLAGS = -g -Wall -O0 -m32
+# no accumulate outgoing args flag is so that oldstyle of push on the stack assembly 
+# operations are performed instead of mov as in mov $3, 8(%esp)
+CFLAGS = -g -Wall -O0 -mno-accumulate-outgoing-args
 # Debug Flags
 #CFLAGS = -g -Wall -Og
-LFLAGS = -g -Wall -m32
-LDFLAGS =  -m32
+LFLAGS = -g -Wall 
+LDFLAGS =  
 
 # Profile Flags
 #CFLAGS = -g -Wall -pg

@@ -17,13 +17,23 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+int my_add(int a, int b) {
+	int c;
+
+	c=a+b;
+
+	return c;
+}
+
 int main(int argc, char *argv[]) {
 
-	int i = 1;
-	int j = 2;
+	int i;
+	int j;
 	int sum;
 
-	sum = i+j;
+	i=1;
+	j=2;
+	sum = my_add(i,j);
 	printf("sum = %d\n",sum);
 
 
