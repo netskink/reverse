@@ -177,4 +177,9 @@ sudo setterm -dump 1 -file screen.dump
 
 =================================
 
+Use the script in the screenshots folder with vim to view and replay the 
+gdb sessions.
+
+ vi `./viewthem.sh`
+
 
