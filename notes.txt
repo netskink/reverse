@@ -182,4 +182,7 @@ gdb sessions.
 
  vi `./viewthem.sh`
 
-
+====================
+winheight regs -4
+winheight cmd +4
+======================

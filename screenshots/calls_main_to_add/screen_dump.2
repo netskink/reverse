@@ -1,0 +1,48 @@
+ÚÄÄRegister group: generalÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³eax            0x1      1                           ecx            0xbffffcb0       -1073742672         edx            0xbffffcd4       -1073742636           ³
+³ebx            0xb7fd2000       -1208147968         esp            0xbffffc74       0xbffffc74          ebp            0xbffffc98       0xbffffc98            ³
+³esi            0x0      0                           edi            0x0      0                           eip            0x8048400        0x8048400 <myadd>     ³
+³eflags         0x282    [ SF IF ]                   cs             0x73     115                         ss             0x7b     123                           ³
+³ds             0x7b     123                         es             0x7b     123                         fs             0x0      0                             ³
+³gs             0x33     51                                                                                                                                    ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+B+>³0x8048400 <myadd>       push   %ebp                                                                                                                        ³
+   ³0x8048401 <myadd+1>     mov    %esp,%ebp                                                                                                                   ³
+   ³0x8048403 <myadd+3>     sub    $0x10,%esp                                                                                                                  ³
+   ³0x8048406 <myadd+6>     mov    0xc(%ebp),%eax                                                                                                              ³
+   ³0x8048409 <myadd+9>     mov    0x8(%ebp),%edx                                                                                                              ³
+   ³0x804840c <myadd+12>    add    %edx,%eax                                                                                                                   ³
+   ³0x804840e <myadd+14>    mov    %eax,-0x4(%ebp)                                                                                                             ³
+   ³0x8048411 <myadd+17>    mov    -0x4(%ebp),%eax                                                                                                             ³
+   ³0x8048414 <myadd+20>    leave                                                                                                                              ³
+   ³0x8048415 <myadd+21>    ret                                                                                                                                ³
+   ³0x8048416 <main>        lea    0x4(%esp),%ecx                                                                                                              ³
+   ³0x804841a <main+4>      and    $0xfffffff0,%esp                                                                                                            ³
+   ³0x804841d <main+7>      pushl  -0x4(%ecx)                                                                                                                  ³
+   ³0x8048420 <main+10>     push   %ebp                                                                                                                        ³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+child process 977 In: myadd                                                                                                            Line: 11   PC: 0x8048400
+(gdb) x/8x $esp-8
+0xbffffc70:     0xbffffe5a      0x0000002f      0x00000001      0x00000002
+0xbffffc80:     0x00000001      0xbffffd44      0x00000002      0x00000001
+(gdb) stepi
+
+Breakpoint 1, myadd (a=1, b=2) at main_calls.c:11
+(gdb)
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+ÚÄÄRegister group: generalÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³eax            0x3      3                           ecx            0xbffffcb0       -1073742672         edx            0x1      1                             ³
+³ebx            0xb7fd2000       -1208147968         esp            0xbffffc60       0xbffffc60          ebp            0xbffffc70       0xbffffc70            ³
+³esi            0x0      0                           edi            0x0      0                           eip            0x804840e        0x804840e <myadd+14>  ³
+³eflags         0x206    [ PF IF ]                   cs             0x73     115                         ss             0x7b     123                           ³
+³ds             0x7b     123                         es             0x7b     123                         fs             0x0      0                             ³
+³gs             0x33     51                                                                                                                                    ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+   ³0x80483ff <frame_dummy+47>      nop                                                                                                                        ³
+B+ ³0x8048400 <myadd>               push   %ebp                                                                                                                ³
+   ³0x8048401 <myadd+1>             mov    %esp,%ebp                                                                                                           ³
+   ³0x8048403 <myadd+3>             sub    $0x10,%esp                                                                                                          ³
+   ³0x8048406 <myadd+6>             mov    0xc(%ebp),%eax                                                                                                      ³
+   ³0x8048409 <myadd+9>             mov    0x8(%ebp),%edx                                                                                                      ³
+   ³0x804840c <myadd+12>            add    %edx,%eax                                                                                                           ³
+  >³0x804840e <myadd+14>            mov    %eax,-0x4(%ebp)                                                                                                     ³
+   ³0x8048411 <myadd+17>            mov    -0x4(%ebp),%eax                                                                                                     ³
+   ³0x8048414 <myadd+20>            leave                                                                                                                      ³
+   ³0x8048415 <myadd+21>            ret                                                                                                                        ³
+   ³0x8048416 <main>                lea    0x4(%esp),%ecx                                                                                                      ³
+   ³0x804841a <main+4>              and    $0xfffffff0,%esp                                                                                                    ³
+   ³0x804841d <main+7>              pushl  -0x4(%ecx)                                                                                                          ³
+   ³0x8048420 <main+10>             push   %ebp                                                                                                                ³
+   ³0x8048421 <main+11>             mov    %esp,%ebp                                                                                                           ³
+   ³0x8048423 <main+13>             push   %ecx                                                                                                                ³
+   ³0x8048424 <main+14>             sub    $0x14,%esp                                                                                                          ³
+B+ ³0x8048427 <main+17>             movl   $0x1,-0xc(%ebp)                                                                                                     ³
+   ³0x804842e <main+24>             movl   $0x2,-0x10(%ebp)                                                                                                    ³
+   ³0x8048435 <main+31>             pushl  -0x10(%ebp)                                                                                                         ³
+   ³0x8048438 <main+34>             pushl  -0xc(%ebp)                                                                                                          ³
+   ³0x804843b <main+37>             call   0x8048400 <myadd>                                                                                                   ³
+   ³0x8048440 <main+42>             add    $0x8,%esp                                                                                                           ³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+child process 977 In: myadd                                                                                                            Line: 13   PC: 0x804840e
+0xbffffc60:     0x08048034      0xbffffd44      0xbffffe5a      0x0804829d
+0xbffffc70:     0xbffffc98      0x08048440      0x00000001      0x00000002
+(gdb) x/8x $ebp
+0xbffffc70:     0xbffffc98      0x08048440      0x00000001      0x00000002
+0xbffffc80:     0x00000001      0xbffffd44      0x00000002      0x00000001
+(gdb) x/8x $ebp-16
+0xbffffc60:     0x08048034      0xbffffd44      0xbffffe5a      0x0804829d
+0xbffffc70:     0xbffffc98      0x08048440      0x00000001      0x00000002
+(gdb) x/8x $ebp-16
+0xbffffc60:     0x08048034      0xbffffd44      0xbffffe5a      0x0804829d
+0xbffffc70:     0xbffffc98      0x08048440      0x00000001      0x00000002
+(gdb)
