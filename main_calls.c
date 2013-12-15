@@ -6,16 +6,7 @@
 
 
 
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <netdb.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 
 int myadd(int a, int b) {
 	int c;
@@ -32,9 +23,7 @@ int main(int argc, char *argv[]) {
 	sum = myadd(i,j);
 	printf("sum = %d\n",sum);
 
-
-	return 0;
-
+	return sum;
 }
 
 

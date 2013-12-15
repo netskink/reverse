@@ -1,0 +1,48 @@
+ÚÄÄRegister group: generalÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³eax            0x1      1                           ecx            0xbffffcc0       -1073742656         edx            0xbffffce4       -1073742620           ³
+³ebx            0xb7fd2000       -1208147968         esp            0xbffffc90       0xbffffc90          ebp            0xbffffca8       0xbffffca8            ³
+³esi            0x0      0                           edi            0x0      0                           eip            0x804842e        0x804842e <main+24>   ³
+³eflags         0x286    [ PF SF IF ]                cs             0x73     115                         ss             0x7b     123                           ³
+³ds             0x7b     123                         es             0x7b     123                         fs             0x0      0                             ³
+³gs             0x33     51                                                                                                                                    ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+³                                                                                                                                                              ³
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+   ³0x804841a <main+4>      and    $0xfffffff0,%esp                                                                                                            ³
+   ³0x804841d <main+7>      pushl  -0x4(%ecx)                                                                                                                  ³
+   ³0x8048420 <main+10>     push   %ebp                                                                                                                        ³
+   ³0x8048421 <main+11>     mov    %esp,%ebp                                                                                                                   ³
+   ³0x8048423 <main+13>     push   %ecx                                                                                                                        ³
+   ³0x8048424 <main+14>     sub    $0x14,%esp                                                                                                                  ³
+B+ ³0x8048427 <main+17>     movl   $0x1,-0xc(%ebp)                                                                                                             ³
+  >³0x804842e <main+24>     movl   $0x2,-0x10(%ebp)                                                                                                            ³
+   ³0x8048435 <main+31>     pushl  -0x10(%ebp)                                                                                                                 ³
+   ³0x8048438 <main+34>     pushl  -0xc(%ebp)                                                                                                                  ³
+   ³0x804843b <main+37>     call   0x8048400 <myadd>                                                                                                           ³
+   ³0x8048440 <main+42>     add    $0x8,%esp                                                                                                                   ³
+   ³0x8048443 <main+45>     mov    %eax,-0x14(%ebp)                                                                                                            ³
+   ³0x8048446 <main+48>     sub    $0x8,%esp                                                                                                                   ³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+child process 803 In: main                                                                                                             Line: 20   PC: 0x804842e
+(gdb) focus asm
+Focus set to ASM window.
+(gdb) x/4x $esp
+0xbffffc90:     0x00000001      0xbffffd54      0xbffffd5c      0xb7e5763d
+(gdb) x/4x $esp-4
+0xbffffc8c:     0x080484c2      0x00000001      0xbffffd54      0xbffffd5c
+(gdb) focus cmd
+Focus set to CMD window.
+(gdb) x/8x $ebp-16
+0xbffffc98:     0xbffffd5c      0xb7e5763d      0xb7fd23c4      0xbffffcc0
+0xbffffca8:     0x00000000      0xb7e3f9d3      0x08048470      0x00000000
+(gdb) stepi
+(gdb) x/8x $ebp-16
+0xbffffc98:     0xbffffd5c      0x00000001      0xb7fd23c4      0xbffffcc0
+0xbffffca8:     0x00000000      0xb7e3f9d3      0x08048470      0x00000000
+(gdb)

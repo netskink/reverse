@@ -1,0 +1,48 @@
+   ÚÄÄmain_calls.cÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³13              c=a+b;                                                                                                                                     ³
+   ³14              return c;                                                                                                                                  ³
+   ³15      }                                                                                                                                                  ³
+   ³16                                                                                                                                                         ³
+   ³17      int main(int argc, char *argv[]) {                                                                                                                 ³
+   ³18                                                                                                                                                         ³
+B+>³19              int i = 1;                                                                                                                                 ³
+   ³20              int j = 2;                                                                                                                                 ³
+   ³21              int sum;                                                                                                                                   ³
+   ³22                                                                                                                                                         ³
+   ³23              sum = myadd(i,j);                                                                                                                          ³
+   ³24              printf("sum = %d\n",sum);                                                                                                                  ³
+   ³25                                                                                                                                                         ³
+   ³26              return sum;                                                                                                                                ³
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³0x804841d <main+7>      pushl  -0x4(%ecx)                                                                                                                  ³
+   ³0x8048420 <main+10>     push   %ebp                                                                                                                        ³
+   ³0x8048421 <main+11>     mov    %esp,%ebp                                                                                                                   ³
+   ³0x8048423 <main+13>     push   %ecx                                                                                                                        ³
+   ³0x8048424 <main+14>     sub    $0x14,%esp                                                                                                                  ³
+B+>³0x8048427 <main+17>     movl   $0x1,-0xc(%ebp)                                                                                                             ³
+   ³0x804842e <main+24>     movl   $0x2,-0x10(%ebp)                                                                                                            ³
+   ³0x8048435 <main+31>     pushl  -0x10(%ebp)                                                                                                                 ³
+   ³0x8048438 <main+34>     pushl  -0xc(%ebp)                                                                                                                  ³
+   ³0x804843b <main+37>     call   0x8048400 <myadd>                                                                                                           ³
+   ³0x8048440 <main+42>     add    $0x8,%esp                                                                                                                   ³
+   ³0x8048443 <main+45>     mov    %eax,-0x14(%ebp)                                                                                                            ³
+   ³0x8048446 <main+48>     sub    $0x8,%esp                                                                                                                   ³
+   ³0x8048449 <main+51>     pushl  -0x14(%ebp)                                                                                                                 ³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+child process 803 In: main                                                                                                             Line: 19   PC: 0x8048427
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-pc-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/davis/progs/reverse/calls...done.
+Breakpoint 1 at 0x8048400: file main_calls.c, line 11.
+Breakpoint 2 at 0x8048427: file main_calls.c, line 19.
+(gdb) run
+Starting program: /home/davis/progs/reverse/calls
+warning: Could not load shared library symbols for linux-gate.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+
+Breakpoint 2, main (argc=1, argv=0xbffffd54) at main_calls.c:19
+(gdb)

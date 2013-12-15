@@ -1,3 +1,10 @@
+
+
+These were initial notes while working on the presentation.  Eventually it
+will be rewritten to be a summary of commands.
+
+
+
 hello program.
 
 Build it with debugging info and no optimisation
@@ -156,8 +163,18 @@ display/i $pc
 x/format address
 
 
+
+=======================
+Songs
 Thievery Corporation - Lebanese Blonde
 The Heavy - Short Change Hero
 Lucho Bermudez - Fiesta de Negritos
+
+===========================
+use setterm to take screenshots
+This will take a screenshot of virtual terminal 1
+sudo setterm -dump 1 -file screen.dump
+
+=================================
 
 

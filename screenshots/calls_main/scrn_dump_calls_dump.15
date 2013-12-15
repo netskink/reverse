@@ -1,0 +1,48 @@
+зддRegister group: generalддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Ёeax            0x3      3                           ecx            0xbffffcc0       -1073742656         edx            0x1      1                             Ё
+Ёebx            0xb7fd2000       -1208147968         esp            0xbffffc70       0xbffffc70          ebp            0xbffffc80       0xbffffc80            Ё
+Ёesi            0x0      0                           edi            0x0      0                           eip            0x8048411        0x8048411 <myadd+17>  Ё
+Ёeflags         0x206    [ PF IF ]                   cs             0x73     115                         ss             0x7b     123                           Ё
+Ёds             0x7b     123                         es             0x7b     123                         fs             0x0      0                             Ё
+Ёgs             0x33     51                                                                                                                                    Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+Ё                                                                                                                                                              Ё
+   зддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+B+ Ё0x8048400 <myadd>       push   %ebp                                                                                                                        Ё
+   Ё0x8048401 <myadd+1>     mov    %esp,%ebp                                                                                                                   Ё
+   Ё0x8048403 <myadd+3>     sub    $0x10,%esp                                                                                                                  Ё
+   Ё0x8048406 <myadd+6>     mov    0xc(%ebp),%eax                                                                                                              Ё
+   Ё0x8048409 <myadd+9>     mov    0x8(%ebp),%edx                                                                                                              Ё
+   Ё0x804840c <myadd+12>    add    %edx,%eax                                                                                                                   Ё
+   Ё0x804840e <myadd+14>    mov    %eax,-0x4(%ebp)                                                                                                             Ё
+  >Ё0x8048411 <myadd+17>    mov    -0x4(%ebp),%eax                                                                                                             Ё
+   Ё0x8048414 <myadd+20>    leave                                                                                                                              Ё
+   Ё0x8048415 <myadd+21>    ret                                                                                                                                Ё
+   Ё0x8048416 <main>        lea    0x4(%esp),%ecx                                                                                                              Ё
+   Ё0x804841a <main+4>      and    $0xfffffff0,%esp                                                                                                            Ё
+   Ё0x804841d <main+7>      pushl  -0x4(%ecx)                                                                                                                  Ё
+   Ё0x8048420 <main+10>     push   %ebp                                                                                                                        Ё
+   юддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+child process 803 In: myadd                                                                                                            Line: 14   PC: 0x8048411
+0xbffffc8c:     0x00000002      0x00000001      0xbffffd54      0x00000002
+0xbffffc9c:     0x00000001      0xb7fd23c4      0xbffffcc0      0x00000000
+(gdb) stepi
+(gdb) x/8x $ebp+12
+0xbffffc8c:     0x00000002      0x00000001      0xbffffd54      0x00000002
+0xbffffc9c:     0x00000001      0xb7fd23c4      0xbffffcc0      0x00000000
+(gdb) stepi
+(gdb) stepi
+(gdb) x/8x $ebp-4
+0xbffffc7c:     0x0804829d      0xbffffca8      0x08048440      0x00000001
+0xbffffc8c:     0x00000002      0x00000001      0xbffffd54      0x00000002
+(gdb) stepi
+(gdb) x/8x $ebp-4
+0xbffffc7c:     0x00000003      0xbffffca8      0x08048440      0x00000001
+0xbffffc8c:     0x00000002      0x00000001      0xbffffd54      0x00000002
+(gdb)
